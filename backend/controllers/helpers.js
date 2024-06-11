@@ -5,8 +5,6 @@ import {
   ReasonPhrases,
   StatusCodes,
 } from 'http-status-codes';
-import bcrypt from "bcrypt";
-
 
 /**
  * DB query to return user details if user exists, it acepts username as argument
@@ -18,21 +16,6 @@ import bcrypt from "bcrypt";
 export const isUserExists = async (username) => {
   const [user] = await db.select({ id: users.id, username: users.username, password: users.password }).from(users).where(eq(users.username, username));
   return user
-}
-
-
-/**
- * Self explanatory I suppose
- *
- * @async
- * @param {string} password
- * @returns {unknown}
- */
-export const handlePasswordHash = async (password) => {
-  const saltRounds = 10;
-  const salt = await bcrypt.genSaltSync(saltRounds);
-  const passwordHash = await bcrypt.hashSync(password, salt);
-  return { passwordHash, salt }
 }
 
 
