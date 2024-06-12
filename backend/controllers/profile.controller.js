@@ -11,7 +11,7 @@ class ProfileController {
   static async get(req, res) {
     try {
       const { user: user_session_data } = req.session
-      const me = await db.select().from(users).where(eq(users.id, user_session_data.id))
+      const [me] = await db.select().from(users).where(eq(users.id, user_session_data.id))
       res
         .status(StatusCodes.OK)
         .json({
