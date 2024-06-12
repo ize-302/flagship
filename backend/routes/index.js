@@ -4,6 +4,7 @@ import authRoute from "./auth.routes.js";
 import projectsRoute from './projects.routes.js';
 import environmentsRoute from './environments.routes.js'
 import flagsRoute from './flags.routes.js'
+import profileRoute from './profile.routes.js'
 
 const mainRoute = Router();
 
@@ -15,5 +16,6 @@ mainRoute.use("/auth", authRoute);
 mainRoute.use("/projects", projectsRoute);
 mainRoute.use("/environments", environmentsRoute);
 mainRoute.use("/flags", flagsRoute);
+mainRoute.use("/profile", profileRoute);
 
 export default mainRoute

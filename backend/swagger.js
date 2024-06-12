@@ -15,7 +15,7 @@ const swaggerOptions = {
       },
     ]
   },
-  apis: ['backend/routes/auth.routes.js', 'backend/routes/projects.routes.js', 'backend/routes/environments.routes.js', 'backend/routes/flags.routes.js'],
+  apis: ['backend/routes/auth.routes.js', 'backend/routes/profile.routes.js', 'backend/routes/projects.routes.js', 'backend/routes/environments.routes.js', 'backend/routes/flags.routes.js',],
 }
 
 const swaggerDocs = swaggerJsdoc(swaggerOptions);

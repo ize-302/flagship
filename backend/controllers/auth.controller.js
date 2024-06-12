@@ -16,7 +16,9 @@ function handleSession(req, res, user) {
     id: user.id,
     email: user.email
   }
-  res.status(StatusCodes.OK).send({ success: true, message: 'You are now logged in' })
+  const referrer = req.get('Referrer')
+  res.redirect((referrer !== undefined ? req.get('Referrer') : 'http://localhost:3000/') + 'dashboard');
+  // res.status(StatusCodes.OK).send({ success: true, message: 'You are now logged in' })
 }
 
 class AuthController {
