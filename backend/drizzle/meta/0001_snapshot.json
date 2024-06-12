@@ -1,8 +1,8 @@
 {
   "version": "6",
   "dialect": "sqlite",
-  "id": "481cf0ad-4b62-4353-b9ee-097343a1c039",
-  "prevId": "00000000-0000-0000-0000-000000000000",
+  "id": "cd7845c0-3f62-4f21-aad9-9f9f735db398",
+  "prevId": "481cf0ad-4b62-4353-b9ee-097343a1c039",
   "tables": {
     "apikeys": {
       "name": "apikeys",
@@ -262,7 +262,7 @@
           "name": "owner_id",
           "type": "text",
           "primaryKey": false,
-          "notNull": true,
+          "notNull": false,
           "autoincrement": false
         },
         "is_active": {
@@ -289,19 +289,6 @@
           "tableTo": "flags",
           "columnsFrom": [
             "flag_id"
-          ],
-          "columnsTo": [
-            "id"
-          ],
-          "onDelete": "cascade",
-          "onUpdate": "no action"
-        },
-        "flags_columns_owner_id_users_id_fk": {
-          "name": "flags_columns_owner_id_users_id_fk",
-          "tableFrom": "flags_columns",
-          "tableTo": "users",
-          "columnsFrom": [
-            "owner_id"
           ],
           "columnsTo": [
             "id"

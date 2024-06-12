@@ -1,8 +1,8 @@
 {
   "version": "6",
   "dialect": "sqlite",
-  "id": "481cf0ad-4b62-4353-b9ee-097343a1c039",
-  "prevId": "00000000-0000-0000-0000-000000000000",
+  "id": "e53def15-8c7d-4511-b590-ada484936b8b",
+  "prevId": "a58a8ff7-b329-4a71-b637-e14471a4533a",
   "tables": {
     "apikeys": {
       "name": "apikeys",
@@ -255,7 +255,7 @@
           "name": "environment_id",
           "type": "text",
           "primaryKey": false,
-          "notNull": false,
+          "notNull": true,
           "autoincrement": false
         },
         "owner_id": {
@@ -289,6 +289,19 @@
           "tableTo": "flags",
           "columnsFrom": [
             "flag_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "cascade",
+          "onUpdate": "no action"
+        },
+        "flags_columns_environment_id_environments_id_fk": {
+          "name": "flags_columns_environment_id_environments_id_fk",
+          "tableFrom": "flags_columns",
+          "tableTo": "environments",
+          "columnsFrom": [
+            "environment_id"
           ],
           "columnsTo": [
             "id"

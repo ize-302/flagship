@@ -1,8 +1,8 @@
 {
   "version": "6",
   "dialect": "sqlite",
-  "id": "481cf0ad-4b62-4353-b9ee-097343a1c039",
-  "prevId": "00000000-0000-0000-0000-000000000000",
+  "id": "a58a8ff7-b329-4a71-b637-e14471a4533a",
+  "prevId": "4c3b7b69-7960-4e9c-bfe0-d12154ac7da4",
   "tables": {
     "apikeys": {
       "name": "apikeys",
@@ -248,7 +248,7 @@
           "name": "flag_id",
           "type": "text",
           "primaryKey": false,
-          "notNull": true,
+          "notNull": false,
           "autoincrement": false
         },
         "environment_id": {
@@ -262,7 +262,7 @@
           "name": "owner_id",
           "type": "text",
           "primaryKey": false,
-          "notNull": true,
+          "notNull": false,
           "autoincrement": false
         },
         "is_active": {
@@ -282,34 +282,7 @@
         }
       },
       "indexes": {},
-      "foreignKeys": {
-        "flags_columns_flag_id_flags_id_fk": {
-          "name": "flags_columns_flag_id_flags_id_fk",
-          "tableFrom": "flags_columns",
-          "tableTo": "flags",
-          "columnsFrom": [
-            "flag_id"
-          ],
-          "columnsTo": [
-            "id"
-          ],
-          "onDelete": "cascade",
-          "onUpdate": "no action"
-        },
-        "flags_columns_owner_id_users_id_fk": {
-          "name": "flags_columns_owner_id_users_id_fk",
-          "tableFrom": "flags_columns",
-          "tableTo": "users",
-          "columnsFrom": [
-            "owner_id"
-          ],
-          "columnsTo": [
-            "id"
-          ],
-          "onDelete": "cascade",
-          "onUpdate": "no action"
-        }
-      },
+      "foreignKeys": {},
       "compositePrimaryKeys": {},
       "uniqueConstraints": {}
     },
