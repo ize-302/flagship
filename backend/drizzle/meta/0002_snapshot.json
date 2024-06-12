@@ -1,8 +1,8 @@
 {
   "version": "6",
   "dialect": "sqlite",
-  "id": "cd301a5a-5f0b-4c3c-96ab-70f5d097ab73",
-  "prevId": "5b18401d-795b-46e7-af3f-3f07caa99f86",
+  "id": "4c3b7b69-7960-4e9c-bfe0-d12154ac7da4",
+  "prevId": "cd7845c0-3f62-4f21-aad9-9f9f735db398",
   "tables": {
     "apikeys": {
       "name": "apikeys",
@@ -28,6 +28,13 @@
           "notNull": true,
           "autoincrement": false
         },
+        "owner_id": {
+          "name": "owner_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
         "created": {
           "name": "created",
           "type": "text",
@@ -45,6 +52,98 @@
           "tableTo": "projects",
           "columnsFrom": [
             "project_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "cascade",
+          "onUpdate": "no action"
+        },
+        "apikeys_owner_id_users_id_fk": {
+          "name": "apikeys_owner_id_users_id_fk",
+          "tableFrom": "apikeys",
+          "tableTo": "users",
+          "columnsFrom": [
+            "owner_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "cascade",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {}
+    },
+    "environments": {
+      "name": "environments",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "text",
+          "primaryKey": true,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "name": {
+          "name": "name",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        },
+        "color": {
+          "name": "color",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        },
+        "project_id": {
+          "name": "project_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "owner_id": {
+          "name": "owner_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "updated": {
+          "name": "updated",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false,
+          "default": "(CURRENT_TIMESTAMP)"
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {
+        "environments_project_id_projects_id_fk": {
+          "name": "environments_project_id_projects_id_fk",
+          "tableFrom": "environments",
+          "tableTo": "projects",
+          "columnsFrom": [
+            "project_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "cascade",
+          "onUpdate": "no action"
+        },
+        "environments_owner_id_users_id_fk": {
+          "name": "environments_owner_id_users_id_fk",
+          "tableFrom": "environments",
+          "tableTo": "users",
+          "columnsFrom": [
+            "owner_id"
           ],
           "columnsTo": [
             "id"
@@ -87,6 +186,13 @@
           "notNull": true,
           "autoincrement": false
         },
+        "owner_id": {
+          "name": "owner_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
         "created": {
           "name": "created",
           "type": "text",
@@ -104,6 +210,98 @@
           "tableTo": "projects",
           "columnsFrom": [
             "project_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "cascade",
+          "onUpdate": "no action"
+        },
+        "flags_owner_id_users_id_fk": {
+          "name": "flags_owner_id_users_id_fk",
+          "tableFrom": "flags",
+          "tableTo": "users",
+          "columnsFrom": [
+            "owner_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "cascade",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {}
+    },
+    "flags_columns": {
+      "name": "flags_columns",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "text",
+          "primaryKey": true,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "flag_id": {
+          "name": "flag_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "environment_id": {
+          "name": "environment_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        },
+        "owner_id": {
+          "name": "owner_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "is_active": {
+          "name": "is_active",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        },
+        "updated": {
+          "name": "updated",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false,
+          "default": "(CURRENT_TIMESTAMP)"
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {
+        "flags_columns_flag_id_flags_id_fk": {
+          "name": "flags_columns_flag_id_flags_id_fk",
+          "tableFrom": "flags_columns",
+          "tableTo": "flags",
+          "columnsFrom": [
+            "flag_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "cascade",
+          "onUpdate": "no action"
+        },
+        "flags_columns_owner_id_users_id_fk": {
+          "name": "flags_columns_owner_id_users_id_fk",
+          "tableFrom": "flags_columns",
+          "tableTo": "users",
+          "columnsFrom": [
+            "owner_id"
           ],
           "columnsTo": [
             "id"
@@ -191,6 +389,13 @@
           "notNull": false,
           "autoincrement": false
         },
+        "provider": {
+          "name": "provider",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        },
         "created": {
           "name": "created",
           "type": "text",
@@ -201,10 +406,10 @@
         }
       },
       "indexes": {
-        "idIndex": {
-          "name": "idIndex",
+        "emailIndex": {
+          "name": "emailIndex",
           "columns": [
-            "id"
+            "email"
           ],
           "isUnique": true
         }
@@ -218,8 +423,6 @@
   "_meta": {
     "schemas": {},
     "tables": {},
-    "columns": {
-      "\"users\".\"name\"": "\"users\".\"displayName\""
-    }
+    "columns": {}
   }
 }

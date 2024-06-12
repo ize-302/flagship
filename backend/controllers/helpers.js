@@ -1,4 +1,4 @@
-import { and, eq, inArray, ne } from "drizzle-orm"
+import { eq } from "drizzle-orm"
 import { users } from "../db/schema.js"
 import { db } from "../db/index.js"
 import {
